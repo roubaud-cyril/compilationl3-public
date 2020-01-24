@@ -14,6 +14,7 @@ Tokens
 espaces = (' ' | 13 | 10)+;
 commentaire= '#' [[0 .. 0xffff] - [10 + 13]]* (10 | 13 | 10 13);
 point_virgule = ';';
+virgule = ',';
 plus = '+';
 moins = '-';
 fois = '*';
@@ -41,6 +42,7 @@ lire = 'lire';
 ecrire = 'ecrire';
 identif = lettre alphanum*;
 nombre = chiffre+;
+epsilon = ' ';
 
 
 
@@ -51,4 +53,46 @@ espaces, commentaire;
 
 Productions
 
-expression = nombre ;
+expr99 =
+    {ou} expr99 ou expr1
+    | {expr1} expr1 ;
+expr1 =
+    {et}expr1 et expr2
+    | {expr2} expr2 ;
+expr2 =
+    {egal}expr2 egal expr3
+     |{inf} expr2 inf expr3
+      |{sup} expr2 sup expr3
+       | {expr3} expr3 ;
+expr3 =
+    {plus}expr3 plus expr4
+    |{moins} expr3 moins expr4
+    | {expr4} expr4 ;
+expr4 =
+    {fois} expr4 fois expr5
+    |{divise} expr4 divise expr5
+     | {expr5} expr5 ;
+expr5 =
+    {non} non expr5
+     | {expr6} expr6 ;
+expr6 =
+    {parenthesage}lp expr99 rp
+    |{nombre} nombre |
+     {identif} identif |
+      {lire} lire lp rp |
+      {appelfunction} appelf;
+
+var = {simple} identif | {derive} identif cl expr99 cr ;
+
+affectation = var egal expr99 point_virgule ;
+
+appelf = {fonctionparam} identif lp listexpr rp ;
+instructfonction = appelf point_virgule ;
+listexpr = {param} expr99 listexpr2 | {vide} epsilon ;
+listexpr2 = {suiteparam} virgule expr99 listexpr2 | {vide} epsilon ;
+
+keyword ={si} if | {tantque} while ;
+
+if = {si} si lp expr99 rp alors bloc | {sisinon} si lp expr99 rp alors bloc sinon bloc ;
+bloc = al bloc2 ar ;
+bloc2 = {suitexpr} expr99 point_virgule bloc2 | {eps} epsilon | {keyword} keyword ;
