@@ -75,7 +75,253 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAExpression(AExpression node)
+    public void caseAOuExpr99(AOuExpr99 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExpr1Expr99(AExpr1Expr99 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAEtExpr1(AEtExpr1 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExpr2Expr1(AExpr2Expr1 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAEgalExpr2(AEgalExpr2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAInfExpr2(AInfExpr2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASupExpr2(ASupExpr2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExpr3Expr2(AExpr3Expr2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPlusExpr3(APlusExpr3 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAMoinsExpr3(AMoinsExpr3 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExpr4Expr3(AExpr4Expr3 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFoisExpr4(AFoisExpr4 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADiviseExpr4(ADiviseExpr4 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExpr5Expr4(AExpr5Expr4 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseANonExpr5(ANonExpr5 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAExpr6Expr5(AExpr6Expr5 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAParenthesageExpr6(AParenthesageExpr6 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseANombreExpr6(ANombreExpr6 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIdentifExpr6(AIdentifExpr6 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseALireExpr6(ALireExpr6 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAppelfunctionExpr6(AAppelfunctionExpr6 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASimpleVar(ASimpleVar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADeriveVar(ADeriveVar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAffectation(AAffectation node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAFonctionparamAppelf(AFonctionparamAppelf node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAInstructfonction(AInstructfonction node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAParamListexpr(AParamListexpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAVideListexpr(AVideListexpr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASuiteparamListexpr2(ASuiteparamListexpr2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAVideListexpr2(AVideListexpr2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASiKeyword(ASiKeyword node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseATantqueKeyword(ATantqueKeyword node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASiIf(ASiIf node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASisinonIf(ASisinonIf node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAWololo(AWololo node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABloc(ABloc node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASuitexprBloc2(ASuitexprBloc2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAEpsBloc2(AEpsBloc2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAKeywordBloc2(AKeywordBloc2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAReturn(AReturn node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAWrite(AWrite node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAWhile(AWhile node)
     {
         defaultCase(node);
     }
@@ -94,6 +340,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTPointVirgule(TPointVirgule node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTVirgule(TVirgule node)
     {
         defaultCase(node);
     }
@@ -256,6 +508,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTNombre(TNombre node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTEpsilon(TEpsilon node)
     {
         defaultCase(node);
     }

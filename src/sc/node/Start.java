@@ -7,7 +7,7 @@ import sc.analysis.*;
 @SuppressWarnings("nls")
 public final class Start extends Node
 {
-    private PExpression _pExpression_;
+    private PExpr99 _pExpr99_;
     private EOF _eof_;
 
     public Start()
@@ -16,10 +16,10 @@ public final class Start extends Node
     }
 
     public Start(
-        @SuppressWarnings("hiding") PExpression _pExpression_,
+        @SuppressWarnings("hiding") PExpr99 _pExpr99_,
         @SuppressWarnings("hiding") EOF _eof_)
     {
-        setPExpression(_pExpression_);
+        setPExpr99(_pExpr99_);
         setEOF(_eof_);
     }
 
@@ -27,7 +27,7 @@ public final class Start extends Node
     public Object clone()
     {
         return new Start(
-            cloneNode(this._pExpression_),
+            cloneNode(this._pExpr99_),
             cloneNode(this._eof_));
     }
 
@@ -37,16 +37,16 @@ public final class Start extends Node
         ((Analysis) sw).caseStart(this);
     }
 
-    public PExpression getPExpression()
+    public PExpr99 getPExpr99()
     {
-        return this._pExpression_;
+        return this._pExpr99_;
     }
 
-    public void setPExpression(PExpression node)
+    public void setPExpr99(PExpr99 node)
     {
-        if(this._pExpression_ != null)
+        if(this._pExpr99_ != null)
         {
-            this._pExpression_.parent(null);
+            this._pExpr99_.parent(null);
         }
 
         if(node != null)
@@ -59,7 +59,7 @@ public final class Start extends Node
             node.parent(this);
         }
 
-        this._pExpression_ = node;
+        this._pExpr99_ = node;
     }
 
     public EOF getEOF()
@@ -90,9 +90,9 @@ public final class Start extends Node
     @Override
     void removeChild(Node child)
     {
-        if(this._pExpression_ == child)
+        if(this._pExpr99_ == child)
         {
-            this._pExpression_ = null;
+            this._pExpr99_ = null;
             return;
         }
 
@@ -108,9 +108,9 @@ public final class Start extends Node
     @Override
     void replaceChild(Node oldChild, Node newChild)
     {
-        if(this._pExpression_ == oldChild)
+        if(this._pExpr99_ == oldChild)
         {
-            setPExpression((PExpression) newChild);
+            setPExpr99((PExpr99) newChild);
             return;
         }
 
@@ -127,7 +127,7 @@ public final class Start extends Node
     public String toString()
     {
         return "" +
-            toString(this._pExpression_) +
+            toString(this._pExpr99_) +
             toString(this._eof_);
     }
 }

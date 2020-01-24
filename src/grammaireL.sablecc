@@ -88,11 +88,17 @@ affectation = var egal expr99 point_virgule ;
 
 appelf = {fonctionparam} identif lp listexpr rp ;
 instructfonction = appelf point_virgule ;
+
 listexpr = {param} expr99 listexpr2 | {vide} epsilon ;
 listexpr2 = {suiteparam} virgule expr99 listexpr2 | {vide} epsilon ;
 
 keyword ={si} if | {tantque} while ;
 
-if = {si} si lp expr99 rp alors bloc | {sisinon} si lp expr99 rp alors bloc sinon bloc ;
+if = {si} si lp expr99 rp alors bloc | {sisinon} si lp expr99 rp alors bloc sinon wololo ;
+wololo = bloc ;
 bloc = al bloc2 ar ;
 bloc2 = {suitexpr} expr99 point_virgule bloc2 | {eps} epsilon | {keyword} keyword ;
+
+return = retour expr99 point_virgule ;
+write = ecrire lp expr99 rp point_virgule ;
+while = tantque lp expr99 rp faire bloc ;
