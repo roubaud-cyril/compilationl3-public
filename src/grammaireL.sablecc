@@ -3,11 +3,47 @@ Package sc;
 Helpers
 
 lettre = [['a' .. 'z'] + ['A' .. 'Z']];
+chiffre = ['0' ..'9'];
+alphanum = [lettre + chiffre];
+
+
+
 
 Tokens
 
 espaces = (' ' | 13 | 10)+;
 commentaire= '#' [[0 .. 0xffff] - [10 + 13]]* (10 | 13 | 10 13);
+point_virgule = ';';
+plus = '+';
+moins = '-';
+fois = '*';
+divise = '/';
+lp = '(';
+rp = ')';
+cr = ']';
+cl = '[';
+al = '{';
+ar = '}';
+egal = '=';
+inf = '<';
+sup ='>';
+et = '&';
+ou = '|';
+non = '!';
+si = 'si';
+alors = 'alors';
+sinon = 'sinon';
+tantque = 'tantque';
+faire = 'faire';
+entier = 'entier';
+retour = 'retour';
+lire = 'lire';
+ecrire = 'ecrire';
+identif = lettre alphanum*;
+nombre = chiffre+;
+
+
+
 
 Ignored Tokens
 
@@ -15,5 +51,4 @@ espaces, commentaire;
 
 Productions
 
-programme = optdecvar listedecfonc ;
-
+expression = nombre ;
