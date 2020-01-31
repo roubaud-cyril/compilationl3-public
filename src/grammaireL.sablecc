@@ -42,7 +42,7 @@ lire = 'lire';
 ecrire = 'ecrire';
 identif = lettre alphanum*;
 nombre = chiffre+;
-epsilon = ' ';
+
 
 
 
@@ -52,6 +52,25 @@ Ignored Tokens
 espaces, commentaire;
 
 Productions
+
+programme = {etiquette}listedeclarvar programmesuite;
+programmesuite = listedefonction ;
+
+listedefonction = defonction listedefonction2;
+listedefonction2 = {cool} defonction listedefonction2 | {rien} ;
+
+defonction = identif lp listedeclarvar rp defonction2 ;
+defonction2 = {suitefonction2} listedeclarvar point_virgule defonction3 | {suitefonction} defonction3 ;
+defonction3 = blocfonc ;
+blocfonc = al bloc2 return ar |{pourquoi} al bloc2 ar ;
+
+var = {simple} identif | {derive} identif cl expr99 cr ;
+declarvar = {simple} entier identif | {derive} entier identif cl expr99 cr ;
+listedeclarvar = {listevar}declarvar listdeclarvar2 |{vide} ;
+listdeclarvar2 = {suitelistevar} virgule declarvar listdeclarvar2 | {illkillyou}  point_virgule;
+
+instruvide = point_virgule ;
+
 
 expr99 =
     {ou} expr99 ou expr1
@@ -78,27 +97,32 @@ expr5 =
 expr6 =
     {parenthesage}lp expr99 rp
     |{nombre} nombre |
-     {identif} identif |
+     {identif} var |
       {lire} lire lp rp |
       {appelfunction} appelf;
 
-var = {simple} identif | {derive} identif cl expr99 cr ;
+
+
+
 
 affectation = var egal expr99 point_virgule ;
 
+
 appelf = {fonctionparam} identif lp listexpr rp ;
 instructfonction = appelf point_virgule ;
+return = retour expr99 point_virgule ;
+write = ecrire lp expr99 rp point_virgule ;
 
-listexpr = {param} expr99 listexpr2 | {vide} epsilon ;
-listexpr2 = {suiteparam} virgule expr99 listexpr2 | {vide} epsilon ;
+
+listexpr = {param} expr99 listexpr2 | {vide}  ;
+listexpr2 = {suiteparam} virgule expr99 listexpr2 | {vide}  ;
 
 keyword ={si} if | {tantque} while ;
 
 if = {si} si lp expr99 rp alors bloc | {sisinon} si lp expr99 rp alors bloc sinon wololo ;
 wololo = bloc ;
 bloc = al bloc2 ar ;
-bloc2 = {suitexpr} expr99 point_virgule bloc2 | {eps} epsilon | {keyword} keyword ;
+bloc2 = {suitexpr} expr99 point_virgule bloc2 | {keyword} keyword| {tuer} write|{lvijru};
 
-return = retour expr99 point_virgule ;
-write = ecrire lp expr99 rp point_virgule ;
 while = tantque lp expr99 rp faire bloc ;
+

@@ -5,46 +5,46 @@ package sc.node;
 import sc.analysis.*;
 
 @SuppressWarnings("nls")
-public final class AExpression extends PExpression
+public final class AInstruvide extends PInstruvide
 {
-    private TNombre _nombre_;
+    private TPointVirgule _pointVirgule_;
 
-    public AExpression()
+    public AInstruvide()
     {
         // Constructor
     }
 
-    public AExpression(
-        @SuppressWarnings("hiding") TNombre _nombre_)
+    public AInstruvide(
+        @SuppressWarnings("hiding") TPointVirgule _pointVirgule_)
     {
         // Constructor
-        setNombre(_nombre_);
+        setPointVirgule(_pointVirgule_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new AExpression(
-            cloneNode(this._nombre_));
+        return new AInstruvide(
+            cloneNode(this._pointVirgule_));
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAExpression(this);
+        ((Analysis) sw).caseAInstruvide(this);
     }
 
-    public TNombre getNombre()
+    public TPointVirgule getPointVirgule()
     {
-        return this._nombre_;
+        return this._pointVirgule_;
     }
 
-    public void setNombre(TNombre node)
+    public void setPointVirgule(TPointVirgule node)
     {
-        if(this._nombre_ != null)
+        if(this._pointVirgule_ != null)
         {
-            this._nombre_.parent(null);
+            this._pointVirgule_.parent(null);
         }
 
         if(node != null)
@@ -57,23 +57,23 @@ public final class AExpression extends PExpression
             node.parent(this);
         }
 
-        this._nombre_ = node;
+        this._pointVirgule_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._nombre_);
+            + toString(this._pointVirgule_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._nombre_ == child)
+        if(this._pointVirgule_ == child)
         {
-            this._nombre_ = null;
+            this._pointVirgule_ = null;
             return;
         }
 
@@ -84,9 +84,9 @@ public final class AExpression extends PExpression
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._nombre_ == oldChild)
+        if(this._pointVirgule_ == oldChild)
         {
-            setNombre((TNombre) newChild);
+            setPointVirgule((TPointVirgule) newChild);
             return;
         }
 

@@ -75,6 +75,126 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseAEtiquetteProgramme(AEtiquetteProgramme node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAProgrammesuite(AProgrammesuite node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAListedefonction(AListedefonction node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseACoolListedefonction2(ACoolListedefonction2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseARienListedefonction2(ARienListedefonction2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADefonction(ADefonction node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASuitefonction2Defonction2(ASuitefonction2Defonction2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASuitefonctionDefonction2(ASuitefonctionDefonction2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADefonction3(ADefonction3 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseABlocfonc(ABlocfonc node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAPourquoiBlocfonc(APourquoiBlocfonc node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASimpleVar(ASimpleVar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADeriveVar(ADeriveVar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASimpleDeclarvar(ASimpleDeclarvar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseADeriveDeclarvar(ADeriveDeclarvar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAListevarListedeclarvar(AListevarListedeclarvar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAVideListedeclarvar(AVideListedeclarvar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseASuitelistevarListdeclarvar2(ASuitelistevarListdeclarvar2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAIllkillyouListdeclarvar2(AIllkillyouListdeclarvar2 node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAInstruvide(AInstruvide node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseAOuExpr99(AOuExpr99 node)
     {
         defaultCase(node);
@@ -201,18 +321,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseASimpleVar(ASimpleVar node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseADeriveVar(ADeriveVar node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseAAffectation(AAffectation node)
     {
         defaultCase(node);
@@ -226,6 +334,18 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseAInstructfonction(AInstructfonction node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAReturn(AReturn node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAWrite(AWrite node)
     {
         defaultCase(node);
     }
@@ -297,25 +417,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAEpsBloc2(AEpsBloc2 node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseAKeywordBloc2(AKeywordBloc2 node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAReturn(AReturn node)
+    public void caseATuerBloc2(ATuerBloc2 node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAWrite(AWrite node)
+    public void caseALvijruBloc2(ALvijruBloc2 node)
     {
         defaultCase(node);
     }
@@ -508,12 +622,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTNombre(TNombre node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTEpsilon(TEpsilon node)
     {
         defaultCase(node);
     }

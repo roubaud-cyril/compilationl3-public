@@ -7,7 +7,7 @@ import sc.analysis.*;
 @SuppressWarnings("nls")
 public final class Start extends Node
 {
-    private PExpr99 _pExpr99_;
+    private PProgramme _pProgramme_;
     private EOF _eof_;
 
     public Start()
@@ -16,10 +16,10 @@ public final class Start extends Node
     }
 
     public Start(
-        @SuppressWarnings("hiding") PExpr99 _pExpr99_,
+        @SuppressWarnings("hiding") PProgramme _pProgramme_,
         @SuppressWarnings("hiding") EOF _eof_)
     {
-        setPExpr99(_pExpr99_);
+        setPProgramme(_pProgramme_);
         setEOF(_eof_);
     }
 
@@ -27,7 +27,7 @@ public final class Start extends Node
     public Object clone()
     {
         return new Start(
-            cloneNode(this._pExpr99_),
+            cloneNode(this._pProgramme_),
             cloneNode(this._eof_));
     }
 
@@ -37,16 +37,16 @@ public final class Start extends Node
         ((Analysis) sw).caseStart(this);
     }
 
-    public PExpr99 getPExpr99()
+    public PProgramme getPProgramme()
     {
-        return this._pExpr99_;
+        return this._pProgramme_;
     }
 
-    public void setPExpr99(PExpr99 node)
+    public void setPProgramme(PProgramme node)
     {
-        if(this._pExpr99_ != null)
+        if(this._pProgramme_ != null)
         {
-            this._pExpr99_.parent(null);
+            this._pProgramme_.parent(null);
         }
 
         if(node != null)
@@ -59,7 +59,7 @@ public final class Start extends Node
             node.parent(this);
         }
 
-        this._pExpr99_ = node;
+        this._pProgramme_ = node;
     }
 
     public EOF getEOF()
@@ -90,9 +90,9 @@ public final class Start extends Node
     @Override
     void removeChild(Node child)
     {
-        if(this._pExpr99_ == child)
+        if(this._pProgramme_ == child)
         {
-            this._pExpr99_ = null;
+            this._pProgramme_ = null;
             return;
         }
 
@@ -108,9 +108,9 @@ public final class Start extends Node
     @Override
     void replaceChild(Node oldChild, Node newChild)
     {
-        if(this._pExpr99_ == oldChild)
+        if(this._pProgramme_ == oldChild)
         {
-            setPExpr99((PExpr99) newChild);
+            setPProgramme((PProgramme) newChild);
             return;
         }
 
@@ -127,7 +127,7 @@ public final class Start extends Node
     public String toString()
     {
         return "" +
-            toString(this._pExpr99_) +
+            toString(this._pProgramme_) +
             toString(this._eof_);
     }
 }

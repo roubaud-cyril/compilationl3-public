@@ -12,6 +12,26 @@ public interface Analysis extends Switch
     void setOut(Node node, Object o);
 
     void caseStart(Start node);
+    void caseAEtiquetteProgramme(AEtiquetteProgramme node);
+    void caseAProgrammesuite(AProgrammesuite node);
+    void caseAListedefonction(AListedefonction node);
+    void caseACoolListedefonction2(ACoolListedefonction2 node);
+    void caseARienListedefonction2(ARienListedefonction2 node);
+    void caseADefonction(ADefonction node);
+    void caseASuitefonction2Defonction2(ASuitefonction2Defonction2 node);
+    void caseASuitefonctionDefonction2(ASuitefonctionDefonction2 node);
+    void caseADefonction3(ADefonction3 node);
+    void caseABlocfonc(ABlocfonc node);
+    void caseAPourquoiBlocfonc(APourquoiBlocfonc node);
+    void caseASimpleVar(ASimpleVar node);
+    void caseADeriveVar(ADeriveVar node);
+    void caseASimpleDeclarvar(ASimpleDeclarvar node);
+    void caseADeriveDeclarvar(ADeriveDeclarvar node);
+    void caseAListevarListedeclarvar(AListevarListedeclarvar node);
+    void caseAVideListedeclarvar(AVideListedeclarvar node);
+    void caseASuitelistevarListdeclarvar2(ASuitelistevarListdeclarvar2 node);
+    void caseAIllkillyouListdeclarvar2(AIllkillyouListdeclarvar2 node);
+    void caseAInstruvide(AInstruvide node);
     void caseAOuExpr99(AOuExpr99 node);
     void caseAExpr1Expr99(AExpr1Expr99 node);
     void caseAEtExpr1(AEtExpr1 node);
@@ -33,11 +53,11 @@ public interface Analysis extends Switch
     void caseAIdentifExpr6(AIdentifExpr6 node);
     void caseALireExpr6(ALireExpr6 node);
     void caseAAppelfunctionExpr6(AAppelfunctionExpr6 node);
-    void caseASimpleVar(ASimpleVar node);
-    void caseADeriveVar(ADeriveVar node);
     void caseAAffectation(AAffectation node);
     void caseAFonctionparamAppelf(AFonctionparamAppelf node);
     void caseAInstructfonction(AInstructfonction node);
+    void caseAReturn(AReturn node);
+    void caseAWrite(AWrite node);
     void caseAParamListexpr(AParamListexpr node);
     void caseAVideListexpr(AVideListexpr node);
     void caseASuiteparamListexpr2(ASuiteparamListexpr2 node);
@@ -49,10 +69,9 @@ public interface Analysis extends Switch
     void caseAWololo(AWololo node);
     void caseABloc(ABloc node);
     void caseASuitexprBloc2(ASuitexprBloc2 node);
-    void caseAEpsBloc2(AEpsBloc2 node);
     void caseAKeywordBloc2(AKeywordBloc2 node);
-    void caseAReturn(AReturn node);
-    void caseAWrite(AWrite node);
+    void caseATuerBloc2(ATuerBloc2 node);
+    void caseALvijruBloc2(ALvijruBloc2 node);
     void caseAWhile(AWhile node);
 
     void caseTEspaces(TEspaces node);
@@ -86,7 +105,6 @@ public interface Analysis extends Switch
     void caseTEcrire(TEcrire node);
     void caseTIdentif(TIdentif node);
     void caseTNombre(TNombre node);
-    void caseTEpsilon(TEpsilon node);
     void caseEOF(EOF node);
     void caseInvalidToken(InvalidToken node);
 }

@@ -2,7 +2,7 @@
 
 package sc.node;
 
-public abstract class PExpression extends Node
+public abstract class PExpr2 extends Node
 {
     // Empty body
 }

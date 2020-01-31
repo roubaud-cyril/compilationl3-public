@@ -1,0 +1,40 @@
+
+SableCC version 3.7
+Copyright (C) 1997-2012 Etienne M. Gagnon <egagnon@j-meg.com> and
+others.  All rights reserved.
+
+This software comes with ABSOLUTELY NO WARRANTY.  This is free software,
+and you are welcome to redistribute it under certain conditions.
+
+Type 'sablecc -license' to view
+the complete copyright notice and license.
+
+
+ -- Generating parser for grammaireL.sablecc in /amuhome/r18026972/IdeaProjects/compilationl3-public2/src
+Adding productions and alternative of section AST.
+Verifying identifiers.
+Verifying ast identifiers.
+Adding empty productions and empty alternative transformation if necessary.
+Adding productions and alternative transformation if necessary.
+computing alternative symbol table identifiers.
+Verifying production transform identifiers.
+Verifying ast alternatives transform identifiers.
+Generating token classes.
+Generating production classes.
+Generating alternative classes.
+Generating analysis classes.
+Generating utility classes.
+Generating the lexer.
+ State: INITIAL
+ - Constructing NFA.
+...................................................................................
+ - Constructing DFA.
+...................................................................................................................................................................
+.............................................................................
+ - resolving ACCEPT states.
+Generating the parser.
+........................................................................................................
+........................................................................................................
+........................................................................................................
+...
+........................................................................................................
