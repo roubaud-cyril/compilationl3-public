@@ -53,7 +53,7 @@ espaces, commentaire;
 
 Productions
 
-programme = {etiquette}listedeclarvar programmesuite;
+programme = {etiquette}listedeclarvar point_virgule programmesuite;
 programmesuite = listedefonction ;
 
 listedefonction = defonction listedefonction2;
@@ -62,14 +62,15 @@ listedefonction2 = {cool} defonction listedefonction2 | {rien} ;
 defonction = identif lp listedeclarvar rp defonction2 ;
 defonction2 = {suitefonction2} listedeclarvar point_virgule defonction3 | {suitefonction} defonction3 ;
 defonction3 = blocfonc ;
-blocfonc = al bloc2 return ar |{pourquoi} al bloc2 ar ;
+blocfonc = al bloc2 ar ;
 
 var = {simple} identif | {derive} identif cl expr99 cr ;
 declarvar = {simple} entier identif | {derive} entier identif cl expr99 cr ;
 listedeclarvar = {listevar}declarvar listdeclarvar2 |{vide} ;
-listdeclarvar2 = {suitelistevar} virgule declarvar listdeclarvar2 | {illkillyou}  point_virgule;
+listdeclarvar2 = {suitelistevar} virgule declarvar listdeclarvar2 | {illkillyou} ;
 
 instruvide = point_virgule ;
+affectation = var egal expr99 point_virgule ;
 
 
 expr99 =
@@ -102,10 +103,10 @@ expr6 =
       {appelfunction} appelf;
 
 
+instr = {vreui}instructfonction|{aff} affectation |{return} return| {ecr} write  ;
 
 
 
-affectation = var egal expr99 point_virgule ;
 
 
 appelf = {fonctionparam} identif lp listexpr rp ;
@@ -119,10 +120,10 @@ listexpr2 = {suiteparam} virgule expr99 listexpr2 | {vide}  ;
 
 keyword ={si} if | {tantque} while ;
 
-if = {si} si lp expr99 rp alors bloc | {sisinon} si lp expr99 rp alors bloc sinon wololo ;
+if = {si}  si  expr99  alors bloc | {sisinon} si  expr99  alors bloc sinon wololo ;
 wololo = bloc ;
 bloc = al bloc2 ar ;
-bloc2 = {suitexpr} expr99 point_virgule bloc2 | {keyword} keyword| {tuer} write|{lvijru};
+bloc2 = {suitexpr} instr bloc2 | {keyword} keyword |{gesr} ;
 
-while = tantque lp expr99 rp faire bloc ;
+while = tantque  expr99  faire bloc ;
 

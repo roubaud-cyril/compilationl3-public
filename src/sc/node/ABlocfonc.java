@@ -9,7 +9,6 @@ public final class ABlocfonc extends PBlocfonc
 {
     private TAl _al_;
     private PBloc2 _bloc2_;
-    private PReturn _return_;
     private TAr _ar_;
 
     public ABlocfonc()
@@ -20,15 +19,12 @@ public final class ABlocfonc extends PBlocfonc
     public ABlocfonc(
         @SuppressWarnings("hiding") TAl _al_,
         @SuppressWarnings("hiding") PBloc2 _bloc2_,
-        @SuppressWarnings("hiding") PReturn _return_,
         @SuppressWarnings("hiding") TAr _ar_)
     {
         // Constructor
         setAl(_al_);
 
         setBloc2(_bloc2_);
-
-        setReturn(_return_);
 
         setAr(_ar_);
 
@@ -40,7 +36,6 @@ public final class ABlocfonc extends PBlocfonc
         return new ABlocfonc(
             cloneNode(this._al_),
             cloneNode(this._bloc2_),
-            cloneNode(this._return_),
             cloneNode(this._ar_));
     }
 
@@ -100,31 +95,6 @@ public final class ABlocfonc extends PBlocfonc
         this._bloc2_ = node;
     }
 
-    public PReturn getReturn()
-    {
-        return this._return_;
-    }
-
-    public void setReturn(PReturn node)
-    {
-        if(this._return_ != null)
-        {
-            this._return_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._return_ = node;
-    }
-
     public TAr getAr()
     {
         return this._ar_;
@@ -156,7 +126,6 @@ public final class ABlocfonc extends PBlocfonc
         return ""
             + toString(this._al_)
             + toString(this._bloc2_)
-            + toString(this._return_)
             + toString(this._ar_);
     }
 
@@ -173,12 +142,6 @@ public final class ABlocfonc extends PBlocfonc
         if(this._bloc2_ == child)
         {
             this._bloc2_ = null;
-            return;
-        }
-
-        if(this._return_ == child)
-        {
-            this._return_ = null;
             return;
         }
 
@@ -204,12 +167,6 @@ public final class ABlocfonc extends PBlocfonc
         if(this._bloc2_ == oldChild)
         {
             setBloc2((PBloc2) newChild);
-            return;
-        }
-
-        if(this._return_ == oldChild)
-        {
-            setReturn((PReturn) newChild);
             return;
         }
 

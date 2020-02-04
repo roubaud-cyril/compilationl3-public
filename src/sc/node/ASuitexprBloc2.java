@@ -7,8 +7,7 @@ import sc.analysis.*;
 @SuppressWarnings("nls")
 public final class ASuitexprBloc2 extends PBloc2
 {
-    private PExpr99 _expr99_;
-    private TPointVirgule _pointVirgule_;
+    private PInstr _instr_;
     private PBloc2 _bloc2_;
 
     public ASuitexprBloc2()
@@ -17,14 +16,11 @@ public final class ASuitexprBloc2 extends PBloc2
     }
 
     public ASuitexprBloc2(
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
-        @SuppressWarnings("hiding") TPointVirgule _pointVirgule_,
+        @SuppressWarnings("hiding") PInstr _instr_,
         @SuppressWarnings("hiding") PBloc2 _bloc2_)
     {
         // Constructor
-        setExpr99(_expr99_);
-
-        setPointVirgule(_pointVirgule_);
+        setInstr(_instr_);
 
         setBloc2(_bloc2_);
 
@@ -34,8 +30,7 @@ public final class ASuitexprBloc2 extends PBloc2
     public Object clone()
     {
         return new ASuitexprBloc2(
-            cloneNode(this._expr99_),
-            cloneNode(this._pointVirgule_),
+            cloneNode(this._instr_),
             cloneNode(this._bloc2_));
     }
 
@@ -45,16 +40,16 @@ public final class ASuitexprBloc2 extends PBloc2
         ((Analysis) sw).caseASuitexprBloc2(this);
     }
 
-    public PExpr99 getExpr99()
+    public PInstr getInstr()
     {
-        return this._expr99_;
+        return this._instr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setInstr(PInstr node)
     {
-        if(this._expr99_ != null)
+        if(this._instr_ != null)
         {
-            this._expr99_.parent(null);
+            this._instr_.parent(null);
         }
 
         if(node != null)
@@ -67,32 +62,7 @@ public final class ASuitexprBloc2 extends PBloc2
             node.parent(this);
         }
 
-        this._expr99_ = node;
-    }
-
-    public TPointVirgule getPointVirgule()
-    {
-        return this._pointVirgule_;
-    }
-
-    public void setPointVirgule(TPointVirgule node)
-    {
-        if(this._pointVirgule_ != null)
-        {
-            this._pointVirgule_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._pointVirgule_ = node;
+        this._instr_ = node;
     }
 
     public PBloc2 getBloc2()
@@ -124,8 +94,7 @@ public final class ASuitexprBloc2 extends PBloc2
     public String toString()
     {
         return ""
-            + toString(this._expr99_)
-            + toString(this._pointVirgule_)
+            + toString(this._instr_)
             + toString(this._bloc2_);
     }
 
@@ -133,15 +102,9 @@ public final class ASuitexprBloc2 extends PBloc2
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._expr99_ == child)
+        if(this._instr_ == child)
         {
-            this._expr99_ = null;
-            return;
-        }
-
-        if(this._pointVirgule_ == child)
-        {
-            this._pointVirgule_ = null;
+            this._instr_ = null;
             return;
         }
 
@@ -158,15 +121,9 @@ public final class ASuitexprBloc2 extends PBloc2
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._expr99_ == oldChild)
+        if(this._instr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
-            return;
-        }
-
-        if(this._pointVirgule_ == oldChild)
-        {
-            setPointVirgule((TPointVirgule) newChild);
+            setInstr((PInstr) newChild);
             return;
         }
 

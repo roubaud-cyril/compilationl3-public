@@ -8,9 +8,7 @@ import sc.analysis.*;
 public final class AWhile extends PWhile
 {
     private TTantque _tantque_;
-    private TLp _lp_;
     private PExpr99 _expr99_;
-    private TRp _rp_;
     private TFaire _faire_;
     private PBloc _bloc_;
 
@@ -21,20 +19,14 @@ public final class AWhile extends PWhile
 
     public AWhile(
         @SuppressWarnings("hiding") TTantque _tantque_,
-        @SuppressWarnings("hiding") TLp _lp_,
         @SuppressWarnings("hiding") PExpr99 _expr99_,
-        @SuppressWarnings("hiding") TRp _rp_,
         @SuppressWarnings("hiding") TFaire _faire_,
         @SuppressWarnings("hiding") PBloc _bloc_)
     {
         // Constructor
         setTantque(_tantque_);
 
-        setLp(_lp_);
-
         setExpr99(_expr99_);
-
-        setRp(_rp_);
 
         setFaire(_faire_);
 
@@ -47,9 +39,7 @@ public final class AWhile extends PWhile
     {
         return new AWhile(
             cloneNode(this._tantque_),
-            cloneNode(this._lp_),
             cloneNode(this._expr99_),
-            cloneNode(this._rp_),
             cloneNode(this._faire_),
             cloneNode(this._bloc_));
     }
@@ -85,31 +75,6 @@ public final class AWhile extends PWhile
         this._tantque_ = node;
     }
 
-    public TLp getLp()
-    {
-        return this._lp_;
-    }
-
-    public void setLp(TLp node)
-    {
-        if(this._lp_ != null)
-        {
-            this._lp_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._lp_ = node;
-    }
-
     public PExpr99 getExpr99()
     {
         return this._expr99_;
@@ -133,31 +98,6 @@ public final class AWhile extends PWhile
         }
 
         this._expr99_ = node;
-    }
-
-    public TRp getRp()
-    {
-        return this._rp_;
-    }
-
-    public void setRp(TRp node)
-    {
-        if(this._rp_ != null)
-        {
-            this._rp_.parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.parent() != null)
-            {
-                node.parent().removeChild(node);
-            }
-
-            node.parent(this);
-        }
-
-        this._rp_ = node;
     }
 
     public TFaire getFaire()
@@ -215,9 +155,7 @@ public final class AWhile extends PWhile
     {
         return ""
             + toString(this._tantque_)
-            + toString(this._lp_)
             + toString(this._expr99_)
-            + toString(this._rp_)
             + toString(this._faire_)
             + toString(this._bloc_);
     }
@@ -232,21 +170,9 @@ public final class AWhile extends PWhile
             return;
         }
 
-        if(this._lp_ == child)
-        {
-            this._lp_ = null;
-            return;
-        }
-
         if(this._expr99_ == child)
         {
             this._expr99_ = null;
-            return;
-        }
-
-        if(this._rp_ == child)
-        {
-            this._rp_ = null;
             return;
         }
 
@@ -275,21 +201,9 @@ public final class AWhile extends PWhile
             return;
         }
 
-        if(this._lp_ == oldChild)
-        {
-            setLp((TLp) newChild);
-            return;
-        }
-
         if(this._expr99_ == oldChild)
         {
             setExpr99((PExpr99) newChild);
-            return;
-        }
-
-        if(this._rp_ == oldChild)
-        {
-            setRp((TRp) newChild);
             return;
         }
 

@@ -8,6 +8,7 @@ import sc.analysis.*;
 public final class AEtiquetteProgramme extends PProgramme
 {
     private PListedeclarvar _listedeclarvar_;
+    private TPointVirgule _pointVirgule_;
     private PProgrammesuite _programmesuite_;
 
     public AEtiquetteProgramme()
@@ -17,10 +18,13 @@ public final class AEtiquetteProgramme extends PProgramme
 
     public AEtiquetteProgramme(
         @SuppressWarnings("hiding") PListedeclarvar _listedeclarvar_,
+        @SuppressWarnings("hiding") TPointVirgule _pointVirgule_,
         @SuppressWarnings("hiding") PProgrammesuite _programmesuite_)
     {
         // Constructor
         setListedeclarvar(_listedeclarvar_);
+
+        setPointVirgule(_pointVirgule_);
 
         setProgrammesuite(_programmesuite_);
 
@@ -31,6 +35,7 @@ public final class AEtiquetteProgramme extends PProgramme
     {
         return new AEtiquetteProgramme(
             cloneNode(this._listedeclarvar_),
+            cloneNode(this._pointVirgule_),
             cloneNode(this._programmesuite_));
     }
 
@@ -65,6 +70,31 @@ public final class AEtiquetteProgramme extends PProgramme
         this._listedeclarvar_ = node;
     }
 
+    public TPointVirgule getPointVirgule()
+    {
+        return this._pointVirgule_;
+    }
+
+    public void setPointVirgule(TPointVirgule node)
+    {
+        if(this._pointVirgule_ != null)
+        {
+            this._pointVirgule_.parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.parent() != null)
+            {
+                node.parent().removeChild(node);
+            }
+
+            node.parent(this);
+        }
+
+        this._pointVirgule_ = node;
+    }
+
     public PProgrammesuite getProgrammesuite()
     {
         return this._programmesuite_;
@@ -95,6 +125,7 @@ public final class AEtiquetteProgramme extends PProgramme
     {
         return ""
             + toString(this._listedeclarvar_)
+            + toString(this._pointVirgule_)
             + toString(this._programmesuite_);
     }
 
@@ -105,6 +136,12 @@ public final class AEtiquetteProgramme extends PProgramme
         if(this._listedeclarvar_ == child)
         {
             this._listedeclarvar_ = null;
+            return;
+        }
+
+        if(this._pointVirgule_ == child)
+        {
+            this._pointVirgule_ = null;
             return;
         }
 
@@ -124,6 +161,12 @@ public final class AEtiquetteProgramme extends PProgramme
         if(this._listedeclarvar_ == oldChild)
         {
             setListedeclarvar((PListedeclarvar) newChild);
+            return;
+        }
+
+        if(this._pointVirgule_ == oldChild)
+        {
+            setPointVirgule((TPointVirgule) newChild);
             return;
         }
 

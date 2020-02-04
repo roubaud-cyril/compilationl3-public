@@ -135,12 +135,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAPourquoiBlocfonc(APourquoiBlocfonc node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseASimpleVar(ASimpleVar node)
     {
         defaultCase(node);
@@ -190,6 +184,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseAInstruvide(AInstruvide node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAffectation(AAffectation node)
     {
         defaultCase(node);
     }
@@ -321,7 +321,25 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAAffectation(AAffectation node)
+    public void caseAVreuiInstr(AVreuiInstr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAAffInstr(AAffInstr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAReturnInstr(AReturnInstr node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseAEcrInstr(AEcrInstr node)
     {
         defaultCase(node);
     }
@@ -423,13 +441,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseATuerBloc2(ATuerBloc2 node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALvijruBloc2(ALvijruBloc2 node)
+    public void caseAGesrBloc2(AGesrBloc2 node)
     {
         defaultCase(node);
     }
