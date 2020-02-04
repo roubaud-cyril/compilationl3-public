@@ -1,0 +1,129 @@
+Package sc;
+
+Helpers
+
+lettre = [['a' .. 'z'] + ['A' .. 'Z']];
+chiffre = ['0' ..'9'];
+alphanum = [lettre + chiffre];
+
+
+
+
+Tokens
+
+espaces = (' ' | 13 | 10)+;
+commentaire= '#' [[0 .. 0xffff] - [10 + 13]]* (10 | 13 | 10 13);
+point_virgule = ';';
+virgule = ',';
+plus = '+';
+moins = '-';
+fois = '*';
+divise = '/';
+lp = '(';
+rp = ')';
+cr = ']';
+cl = '[';
+al = '{';
+ar = '}';
+egal = '=';
+inf = '<';
+sup ='>';
+et = '&';
+ou = '|';
+non = '!';
+si = 'si';
+alors = 'alors';
+sinon = 'sinon';
+tantque = 'tantque';
+faire = 'faire';
+entier = 'entier';
+retour = 'retour';
+lire = 'lire';
+ecrire = 'ecrire';
+identif = lettre alphanum*;
+nombre = chiffre+;
+
+
+
+
+
+Ignored Tokens
+
+espaces, commentaire;
+
+Productions
+
+programme = {etiquette}listedeclarvar point_virgule programmesuite;
+programmesuite = listedefonction ;
+
+listedefonction = defonction listedefonction2;
+listedefonction2 = {cool} defonction listedefonction2 | {rien} ;
+
+defonction = identif lp listedeclarvar rp defonction2 ;
+defonction2 = {suitefonction2} listedeclarvar point_virgule defonction3 | {suitefonction} defonction3 ;
+defonction3 = blocfonc ;
+blocfonc = al bloc2 ar ;
+
+var = {simple} identif | {derive} identif cl expr99 cr ;
+declarvar = {simple} entier identif | {derive} entier identif cl expr99 cr ;
+listedeclarvar = {listevar}declarvar listdeclarvar2 |{vide} ;
+listdeclarvar2 = {suitelistevar} virgule declarvar listdeclarvar2 | {illkillyou} ;
+
+instruvide = point_virgule ;
+affectation = var egal expr99 point_virgule ;
+
+
+expr99 =
+    {ou} expr99 ou expr1
+    | {expr1} expr1 ;
+expr1 =
+    {et}expr1 et expr2
+    | {expr2} expr2 ;
+expr2 =
+    {egal}expr2 egal expr3
+     |{inf} expr2 inf expr3
+      |{sup} expr2 sup expr3
+       | {expr3} expr3 ;
+expr3 =
+    {plus}expr3 plus expr4
+    |{moins} expr3 moins expr4
+    | {expr4} expr4 ;
+expr4 =
+    {fois} expr4 fois expr5
+    |{divise} expr4 divise expr5
+     | {expr5} expr5 ;
+expr5 =
+    {non} non expr5
+     | {expr6} expr6 ;
+expr6 =
+    {parenthesage}lp expr99 rp
+    |{nombre} nombre |
+     {identif} var |
+      {lire} lire lp rp |
+      {appelfunction} appelf;
+
+
+instr = {vreui}instructfonction|{aff} affectation |{return} return| {ecr} write  ;
+
+
+
+
+
+appelf = {fonctionparam} identif lp listexpr rp ;
+instructfonction = appelf point_virgule ;
+return = retour expr99 point_virgule ;
+write = ecrire lp expr99 rp point_virgule ;
+
+
+listexpr = {param} expr99 listexpr2 | {vide}  ;
+listexpr2 = {suiteparam} virgule expr99 listexpr2 | {vide}  ;
+
+keyword ={si} if | {tantque} while ;
+
+if = {si}  si  expr99  alors bloc | {sisinon} si  expr99  alors bloc sinon wololo ;
+wololo = bloc ;
+bloc = al bloc2 ar ;
+bloc2 = {suitexpr} instr bloc2 | {keyword} keyword |{gesr} ;
+
+while = tantque  expr99  faire bloc ;
+
