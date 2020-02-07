@@ -9,7 +9,7 @@ public final class AWrite extends PWrite
 {
     private TEcrire _ecrire_;
     private TLp _lp_;
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private TRp _rp_;
     private TPointVirgule _pointVirgule_;
 
@@ -21,7 +21,7 @@ public final class AWrite extends PWrite
     public AWrite(
         @SuppressWarnings("hiding") TEcrire _ecrire_,
         @SuppressWarnings("hiding") TLp _lp_,
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") TRp _rp_,
         @SuppressWarnings("hiding") TPointVirgule _pointVirgule_)
     {
@@ -30,7 +30,7 @@ public final class AWrite extends PWrite
 
         setLp(_lp_);
 
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setRp(_rp_);
 
@@ -44,7 +44,7 @@ public final class AWrite extends PWrite
         return new AWrite(
             cloneNode(this._ecrire_),
             cloneNode(this._lp_),
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._rp_),
             cloneNode(this._pointVirgule_));
     }
@@ -105,16 +105,16 @@ public final class AWrite extends PWrite
         this._lp_ = node;
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -127,7 +127,7 @@ public final class AWrite extends PWrite
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public TRp getRp()
@@ -186,7 +186,7 @@ public final class AWrite extends PWrite
         return ""
             + toString(this._ecrire_)
             + toString(this._lp_)
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._rp_)
             + toString(this._pointVirgule_);
     }
@@ -207,9 +207,9 @@ public final class AWrite extends PWrite
             return;
         }
 
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -244,9 +244,9 @@ public final class AWrite extends PWrite
             return;
         }
 
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 

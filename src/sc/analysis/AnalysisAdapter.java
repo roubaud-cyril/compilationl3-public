@@ -75,7 +75,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAEtiquetteProgramme(AEtiquetteProgramme node)
+    public void caseAProgramme(AProgramme node)
     {
         defaultCase(node);
     }
@@ -93,13 +93,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseACoolListedefonction2(ACoolListedefonction2 node)
+    public void caseASuitelistefuncListedefonction2(ASuitelistefuncListedefonction2 node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseARienListedefonction2(ARienListedefonction2 node)
+    public void caseAVideListedefonction2(AVideListedefonction2 node)
     {
         defaultCase(node);
     }
@@ -111,7 +111,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseASuitefonction2Defonction2(ASuitefonction2Defonction2 node)
+    public void caseASuitedeclarfuncDefonction2(ASuitedeclarfuncDefonction2 node)
     {
         defaultCase(node);
     }
@@ -177,7 +177,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAIllkillyouListdeclarvar2(AIllkillyouListdeclarvar2 node)
+    public void caseAVideListdeclarvar2(AVideListdeclarvar2 node)
     {
         defaultCase(node);
     }
@@ -195,13 +195,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAOuExpr99(AOuExpr99 node)
+    public void caseAOuExpr(AOuExpr node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseAExpr1Expr99(AExpr1Expr99 node)
+    public void caseAExpr1Expr(AExpr1Expr node)
     {
         defaultCase(node);
     }
@@ -226,12 +226,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseAInfExpr2(AInfExpr2 node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseASupExpr2(ASupExpr2 node)
     {
         defaultCase(node);
     }
@@ -321,7 +315,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAVreuiInstr(AVreuiInstr node)
+    public void caseAInstfuncInstr(AInstfuncInstr node)
     {
         defaultCase(node);
     }
@@ -339,7 +333,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAEcrInstr(AEcrInstr node)
+    public void caseAEcrireInstr(AEcrireInstr node)
     {
         defaultCase(node);
     }
@@ -417,7 +411,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAWololo(AWololo node)
+    public void caseABlocsinon(ABlocsinon node)
     {
         defaultCase(node);
     }
@@ -441,7 +435,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseAGesrBloc2(AGesrBloc2 node)
+    public void caseAVideBloc2(AVideBloc2 node)
     {
         defaultCase(node);
     }

@@ -8,11 +8,11 @@ import sc.analysis.*;
 public final class ASisinonIf extends PIf
 {
     private TSi _si_;
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private TAlors _alors_;
     private PBloc _bloc_;
     private TSinon _sinon_;
-    private PWololo _wololo_;
+    private PBlocsinon _blocsinon_;
 
     public ASisinonIf()
     {
@@ -21,16 +21,16 @@ public final class ASisinonIf extends PIf
 
     public ASisinonIf(
         @SuppressWarnings("hiding") TSi _si_,
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") TAlors _alors_,
         @SuppressWarnings("hiding") PBloc _bloc_,
         @SuppressWarnings("hiding") TSinon _sinon_,
-        @SuppressWarnings("hiding") PWololo _wololo_)
+        @SuppressWarnings("hiding") PBlocsinon _blocsinon_)
     {
         // Constructor
         setSi(_si_);
 
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setAlors(_alors_);
 
@@ -38,7 +38,7 @@ public final class ASisinonIf extends PIf
 
         setSinon(_sinon_);
 
-        setWololo(_wololo_);
+        setBlocsinon(_blocsinon_);
 
     }
 
@@ -47,11 +47,11 @@ public final class ASisinonIf extends PIf
     {
         return new ASisinonIf(
             cloneNode(this._si_),
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._alors_),
             cloneNode(this._bloc_),
             cloneNode(this._sinon_),
-            cloneNode(this._wololo_));
+            cloneNode(this._blocsinon_));
     }
 
     @Override
@@ -85,16 +85,16 @@ public final class ASisinonIf extends PIf
         this._si_ = node;
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -107,7 +107,7 @@ public final class ASisinonIf extends PIf
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public TAlors getAlors()
@@ -185,16 +185,16 @@ public final class ASisinonIf extends PIf
         this._sinon_ = node;
     }
 
-    public PWololo getWololo()
+    public PBlocsinon getBlocsinon()
     {
-        return this._wololo_;
+        return this._blocsinon_;
     }
 
-    public void setWololo(PWololo node)
+    public void setBlocsinon(PBlocsinon node)
     {
-        if(this._wololo_ != null)
+        if(this._blocsinon_ != null)
         {
-            this._wololo_.parent(null);
+            this._blocsinon_.parent(null);
         }
 
         if(node != null)
@@ -207,7 +207,7 @@ public final class ASisinonIf extends PIf
             node.parent(this);
         }
 
-        this._wololo_ = node;
+        this._blocsinon_ = node;
     }
 
     @Override
@@ -215,11 +215,11 @@ public final class ASisinonIf extends PIf
     {
         return ""
             + toString(this._si_)
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._alors_)
             + toString(this._bloc_)
             + toString(this._sinon_)
-            + toString(this._wololo_);
+            + toString(this._blocsinon_);
     }
 
     @Override
@@ -232,9 +232,9 @@ public final class ASisinonIf extends PIf
             return;
         }
 
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -256,9 +256,9 @@ public final class ASisinonIf extends PIf
             return;
         }
 
-        if(this._wololo_ == child)
+        if(this._blocsinon_ == child)
         {
-            this._wololo_ = null;
+            this._blocsinon_ = null;
             return;
         }
 
@@ -275,9 +275,9 @@ public final class ASisinonIf extends PIf
             return;
         }
 
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 
@@ -299,9 +299,9 @@ public final class ASisinonIf extends PIf
             return;
         }
 
-        if(this._wololo_ == oldChild)
+        if(this._blocsinon_ == oldChild)
         {
-            setWololo((PWololo) newChild);
+            setBlocsinon((PBlocsinon) newChild);
             return;
         }
 

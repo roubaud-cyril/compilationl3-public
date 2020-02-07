@@ -7,7 +7,7 @@ import sc.analysis.*;
 @SuppressWarnings("nls")
 public final class AParamListexpr extends PListexpr
 {
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private PListexpr2 _listexpr2_;
 
     public AParamListexpr()
@@ -16,11 +16,11 @@ public final class AParamListexpr extends PListexpr
     }
 
     public AParamListexpr(
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") PListexpr2 _listexpr2_)
     {
         // Constructor
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setListexpr2(_listexpr2_);
 
@@ -30,7 +30,7 @@ public final class AParamListexpr extends PListexpr
     public Object clone()
     {
         return new AParamListexpr(
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._listexpr2_));
     }
 
@@ -40,16 +40,16 @@ public final class AParamListexpr extends PListexpr
         ((Analysis) sw).caseAParamListexpr(this);
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -62,7 +62,7 @@ public final class AParamListexpr extends PListexpr
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public PListexpr2 getListexpr2()
@@ -94,7 +94,7 @@ public final class AParamListexpr extends PListexpr
     public String toString()
     {
         return ""
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._listexpr2_);
     }
 
@@ -102,9 +102,9 @@ public final class AParamListexpr extends PListexpr
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -121,9 +121,9 @@ public final class AParamListexpr extends PListexpr
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 

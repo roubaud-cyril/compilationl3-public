@@ -8,7 +8,7 @@ import sc.analysis.*;
 public final class AParenthesageExpr6 extends PExpr6
 {
     private TLp _lp_;
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private TRp _rp_;
 
     public AParenthesageExpr6()
@@ -18,13 +18,13 @@ public final class AParenthesageExpr6 extends PExpr6
 
     public AParenthesageExpr6(
         @SuppressWarnings("hiding") TLp _lp_,
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") TRp _rp_)
     {
         // Constructor
         setLp(_lp_);
 
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setRp(_rp_);
 
@@ -35,7 +35,7 @@ public final class AParenthesageExpr6 extends PExpr6
     {
         return new AParenthesageExpr6(
             cloneNode(this._lp_),
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._rp_));
     }
 
@@ -70,16 +70,16 @@ public final class AParenthesageExpr6 extends PExpr6
         this._lp_ = node;
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -92,7 +92,7 @@ public final class AParenthesageExpr6 extends PExpr6
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public TRp getRp()
@@ -125,7 +125,7 @@ public final class AParenthesageExpr6 extends PExpr6
     {
         return ""
             + toString(this._lp_)
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._rp_);
     }
 
@@ -139,9 +139,9 @@ public final class AParenthesageExpr6 extends PExpr6
             return;
         }
 
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -164,9 +164,9 @@ public final class AParenthesageExpr6 extends PExpr6
             return;
         }
 
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 

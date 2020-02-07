@@ -9,7 +9,7 @@ public final class ADeriveVar extends PVar
 {
     private TIdentif _identif_;
     private TCl _cl_;
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private TCr _cr_;
 
     public ADeriveVar()
@@ -20,7 +20,7 @@ public final class ADeriveVar extends PVar
     public ADeriveVar(
         @SuppressWarnings("hiding") TIdentif _identif_,
         @SuppressWarnings("hiding") TCl _cl_,
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") TCr _cr_)
     {
         // Constructor
@@ -28,7 +28,7 @@ public final class ADeriveVar extends PVar
 
         setCl(_cl_);
 
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setCr(_cr_);
 
@@ -40,7 +40,7 @@ public final class ADeriveVar extends PVar
         return new ADeriveVar(
             cloneNode(this._identif_),
             cloneNode(this._cl_),
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._cr_));
     }
 
@@ -100,16 +100,16 @@ public final class ADeriveVar extends PVar
         this._cl_ = node;
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -122,7 +122,7 @@ public final class ADeriveVar extends PVar
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public TCr getCr()
@@ -156,7 +156,7 @@ public final class ADeriveVar extends PVar
         return ""
             + toString(this._identif_)
             + toString(this._cl_)
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._cr_);
     }
 
@@ -176,9 +176,9 @@ public final class ADeriveVar extends PVar
             return;
         }
 
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -207,9 +207,9 @@ public final class ADeriveVar extends PVar
             return;
         }
 
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 

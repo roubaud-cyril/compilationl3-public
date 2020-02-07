@@ -8,7 +8,7 @@ import sc.analysis.*;
 public final class AWhile extends PWhile
 {
     private TTantque _tantque_;
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private TFaire _faire_;
     private PBloc _bloc_;
 
@@ -19,14 +19,14 @@ public final class AWhile extends PWhile
 
     public AWhile(
         @SuppressWarnings("hiding") TTantque _tantque_,
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") TFaire _faire_,
         @SuppressWarnings("hiding") PBloc _bloc_)
     {
         // Constructor
         setTantque(_tantque_);
 
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setFaire(_faire_);
 
@@ -39,7 +39,7 @@ public final class AWhile extends PWhile
     {
         return new AWhile(
             cloneNode(this._tantque_),
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._faire_),
             cloneNode(this._bloc_));
     }
@@ -75,16 +75,16 @@ public final class AWhile extends PWhile
         this._tantque_ = node;
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -97,7 +97,7 @@ public final class AWhile extends PWhile
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public TFaire getFaire()
@@ -155,7 +155,7 @@ public final class AWhile extends PWhile
     {
         return ""
             + toString(this._tantque_)
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._faire_)
             + toString(this._bloc_);
     }
@@ -170,9 +170,9 @@ public final class AWhile extends PWhile
             return;
         }
 
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -201,9 +201,9 @@ public final class AWhile extends PWhile
             return;
         }
 
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 

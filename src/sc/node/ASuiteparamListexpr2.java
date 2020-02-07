@@ -8,7 +8,7 @@ import sc.analysis.*;
 public final class ASuiteparamListexpr2 extends PListexpr2
 {
     private TVirgule _virgule_;
-    private PExpr99 _expr99_;
+    private PExpr _expr_;
     private PListexpr2 _listexpr2_;
 
     public ASuiteparamListexpr2()
@@ -18,13 +18,13 @@ public final class ASuiteparamListexpr2 extends PListexpr2
 
     public ASuiteparamListexpr2(
         @SuppressWarnings("hiding") TVirgule _virgule_,
-        @SuppressWarnings("hiding") PExpr99 _expr99_,
+        @SuppressWarnings("hiding") PExpr _expr_,
         @SuppressWarnings("hiding") PListexpr2 _listexpr2_)
     {
         // Constructor
         setVirgule(_virgule_);
 
-        setExpr99(_expr99_);
+        setExpr(_expr_);
 
         setListexpr2(_listexpr2_);
 
@@ -35,7 +35,7 @@ public final class ASuiteparamListexpr2 extends PListexpr2
     {
         return new ASuiteparamListexpr2(
             cloneNode(this._virgule_),
-            cloneNode(this._expr99_),
+            cloneNode(this._expr_),
             cloneNode(this._listexpr2_));
     }
 
@@ -70,16 +70,16 @@ public final class ASuiteparamListexpr2 extends PListexpr2
         this._virgule_ = node;
     }
 
-    public PExpr99 getExpr99()
+    public PExpr getExpr()
     {
-        return this._expr99_;
+        return this._expr_;
     }
 
-    public void setExpr99(PExpr99 node)
+    public void setExpr(PExpr node)
     {
-        if(this._expr99_ != null)
+        if(this._expr_ != null)
         {
-            this._expr99_.parent(null);
+            this._expr_.parent(null);
         }
 
         if(node != null)
@@ -92,7 +92,7 @@ public final class ASuiteparamListexpr2 extends PListexpr2
             node.parent(this);
         }
 
-        this._expr99_ = node;
+        this._expr_ = node;
     }
 
     public PListexpr2 getListexpr2()
@@ -125,7 +125,7 @@ public final class ASuiteparamListexpr2 extends PListexpr2
     {
         return ""
             + toString(this._virgule_)
-            + toString(this._expr99_)
+            + toString(this._expr_)
             + toString(this._listexpr2_);
     }
 
@@ -139,9 +139,9 @@ public final class ASuiteparamListexpr2 extends PListexpr2
             return;
         }
 
-        if(this._expr99_ == child)
+        if(this._expr_ == child)
         {
-            this._expr99_ = null;
+            this._expr_ = null;
             return;
         }
 
@@ -164,9 +164,9 @@ public final class ASuiteparamListexpr2 extends PListexpr2
             return;
         }
 
-        if(this._expr99_ == oldChild)
+        if(this._expr_ == oldChild)
         {
-            setExpr99((PExpr99) newChild);
+            setExpr((PExpr) newChild);
             return;
         }
 
