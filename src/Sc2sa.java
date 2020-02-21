@@ -325,7 +325,7 @@ public class Sc2sa extends DepthFirstAdapter {
             node.getExp2().apply(this);
             op2 = (SaExp)this.returnValue;
 
-        this.returnValue = new SaExpAdd(op1,op2);
+        this.returnValue = new SaExpAnd(op1,op2);
     }
 
     @Override
