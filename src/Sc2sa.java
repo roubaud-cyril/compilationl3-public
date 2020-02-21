@@ -2,6 +2,8 @@ import sa.*;
 import sc.analysis.DepthFirstAdapter;
 import sc.node.*;
 
+import java.sql.Savepoint;
+
 public class Sc2sa extends DepthFirstAdapter {
     private SaNode returnValue;
     public SaNode getRoot() {
@@ -9,7 +11,27 @@ public class Sc2sa extends DepthFirstAdapter {
     }
 
 
+    @Override
+    public void caseADecvarldecfoncProgramme(ADecvarldecfoncProgramme node) {
 
+        SaLDec variable = null;
+        SaLDec fonction = null;
+
+
+        node.getOptdecvar().apply(this);
+        variable = (SaLDec)this.returnValue;
+
+
+        node.getListedecfonc().apply(this);
+        fonction = (SaLDec)this.returnValue;
+
+        this.returnValue = new SaProg(variable,fonction);
+    }
+
+    @Override
+    public void caseStart(Start node) {
+        super.caseStart(node);
+    }
     @Override
     public void caseALdecfoncrecListedecfonc(ALdecfoncrecListedecfonc node) {
         SaDec tete = null;
@@ -34,11 +56,11 @@ public class Sc2sa extends DepthFirstAdapter {
     public void caseAInstrDecfonc(AInstrDecfonc node) {
         String nom = null;
         SaLDec param = null;
-        SaInst corps = null;
+        SaInstBloc corps = null;
         nom = node.getIdentif().getText();
 
         node.getInstrbloc().apply(this);
-        corps = (SaInst)returnValue;
+        corps = (SaInstBloc) returnValue;
         node.getListeparam().apply(this);
         param = (SaLDec)returnValue;
         returnValue = new SaDecFonc(nom,param,null,corps);
@@ -48,7 +70,7 @@ public class Sc2sa extends DepthFirstAdapter {
     public void caseADecvarinstrDecfonc(ADecvarinstrDecfonc node) {
         String nom = null;
         SaLDec param = null;
-        SaInst corps = null;
+        SaInstBloc corps = null;
         SaLDec vars = null;
 
         node.getOptdecvar().apply(this);
@@ -57,7 +79,7 @@ public class Sc2sa extends DepthFirstAdapter {
         nom = node.getIdentif().getText();
 
         node.getInstrbloc().apply(this);
-        corps = (SaInst)returnValue;
+        corps = (SaInstBloc) returnValue;
         node.getListeparam().apply(this);
         param = (SaLDec)returnValue;
         returnValue = new SaDecFonc(nom,param, vars,corps);
@@ -65,12 +87,15 @@ public class Sc2sa extends DepthFirstAdapter {
 
     @Override
     public void caseAInstrbloc(AInstrbloc node) {
-        super.caseAInstrbloc(node);
+        SaLInst inst = null;
+        node.getListeinst().apply(this);
+        inst = (SaLInst)returnValue;
+        returnValue = new SaInstBloc(inst);
     }
 
     @Override
     public void caseASansparamListeparam(ASansparamListeparam node) {
-        super.caseASansparamListeparam(node);
+        returnValue = null;
     }
 
     @Override
@@ -79,28 +104,13 @@ public class Sc2sa extends DepthFirstAdapter {
     }
 
 
-    @Override
-    public void caseADecvarldecfoncProgramme(ADecvarldecfoncProgramme node) {
 
-        SaLDec variable = null;
-        SaLDec fonction = null;
-
-
-            node.getOptdecvar().apply(this);
-            variable = (SaLDec)this.returnValue;
-
-
-            node.getListedecfonc().apply(this);
-            fonction = (SaLDec)this.returnValue;
-
-        this.returnValue = new SaProg(variable,fonction);
-    }
 
     @Override
     public void caseALdecfoncProgramme(ALdecfoncProgramme node) {
          node.getListedecfonc().apply(this);
-        SaLDec fonctions = (SaLDec)this.returnValue;
-        this.returnValue = new SaProg(null,fonctions);
+         SaLDec fonctions = (SaLDec) returnValue;
+         returnValue = new SaProg(null,fonctions);
     }
 
     @Override
@@ -152,8 +162,8 @@ public class Sc2sa extends DepthFirstAdapter {
     public void caseADecvarListedecvar(ADecvarListedecvar node) {
         SaDec tete = null;
         node.getDecvar().apply(this);
-        tete = (SaDec)this.returnValue;
-        this.returnValue = new SaLDec(tete,null);
+        tete = (SaDec)returnValue;
+        returnValue = new SaLDec(tete,null);
     }
 
     @Override
@@ -417,7 +427,10 @@ public class Sc2sa extends DepthFirstAdapter {
 
     @Override
     public void caseAVarExp6(AVarExp6 node) {
-        super.caseAVarExp6(node);
+        SaVar var;
+        node.getVar().apply(this);
+        var = (SaVar)returnValue;
+        returnValue = new SaExpVar(var);
     }
 
     @Override
@@ -427,7 +440,10 @@ public class Sc2sa extends DepthFirstAdapter {
 
     @Override
     public void caseAAppelfctExp6(AAppelfctExp6 node) {
-        super.caseAAppelfctExp6(node);
+        SaAppel app;
+        node.getAppelfct().apply(this);
+        app = (SaAppel) returnValue;
+        returnValue = new SaExpAppel(app);
     }
 
     @Override
@@ -450,7 +466,7 @@ public class Sc2sa extends DepthFirstAdapter {
         this.returnValue = new SaInstAffect(rhs,lhs);
     }
 
-    @Override
+    @Override// A CHECK
     public void caseAInstrtantque(AInstrtantque node) {
         SaExp condition = null;
         SaInstBloc instrs = null;
