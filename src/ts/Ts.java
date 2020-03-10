@@ -114,6 +114,12 @@ public class Ts
 	    }
 	}
     }
+	public boolean containsVar(String identif) {
+		return variables.containsKey(identif);
+	}
+	public boolean containsFonc(String identif) {
+		return fonctions.containsKey(identif);
+	}
 
     public void afficheTout(String baseFileName){
 	String fileName;
