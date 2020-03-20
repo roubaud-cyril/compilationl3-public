@@ -26,6 +26,8 @@ public class C3a{
     
     public int getTempCounter(){return this.tempCounter;}
 
+
+
     public void ajouteInst(C3aInst inst){
 	if(this.nextLabel != null){
 	    inst.setLabel(this.nextLabel);
