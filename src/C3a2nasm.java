@@ -1,8 +1,5 @@
 import c3a.*;
-import nasm.Nasm;
-import nasm.NasmAdd;
-import nasm.NasmMov;
-import nasm.NasmOperand;
+import nasm.*;
 import ts.Ts;
 import ts.TsItemFct;
 
@@ -53,6 +50,14 @@ public class C3a2nasm implements C3aVisitor<NasmOperand> {
 
     @Override
     public NasmOperand visit(C3aInstMult inst) {
+        NasmOperand label = (inst.label != null) ?
+                inst.label.accept(this) :
+                null;
+        NasmOperand oper1 = inst.op1.accept(this);
+        NasmOperand oper2 = inst.op2.accept(this);
+        NasmOperand dest = inst.result.accept(this);
+        nasm.ajouteInst(new NasmMov(label, dest, oper1, ""));
+        nasm.ajouteInst(new NasmAdd(null, dest, oper2, ""));
         return null;
     }
 
@@ -63,6 +68,14 @@ public class C3a2nasm implements C3aVisitor<NasmOperand> {
 
     @Override
     public NasmOperand visit(C3aInstSub inst) {
+        NasmOperand label = (inst.label != null) ?
+                inst.label.accept(this) :
+                null;
+        NasmOperand oper1 = inst.op1.accept(this);
+        NasmOperand oper2 = inst.op2.accept(this);
+        NasmOperand dest = inst.result.accept(this);
+        nasm.ajouteInst(new NasmMov(label, dest, oper1, ""));
+        nasm.ajouteInst(new NasmAdd(null, dest, oper2, ""));
         return null;
     }
 
@@ -92,6 +105,16 @@ public class C3a2nasm implements C3aVisitor<NasmOperand> {
 
     @Override
     public NasmOperand visit(C3aInstJumpIfEqual inst) {
+        NasmOperand label = (inst.label != null) ?
+                inst.label.accept(this) :
+                null;
+
+        NasmOperand result = inst.result.accept(this);
+        NasmOperand op1 = inst.op1.accept(this);
+        NasmOperand op2 = inst.op2.accept(this);
+
+        nasm.ajouteInst(new NasmCmp(label,op1,op2,"JumpIfEqual 1"));
+
         return null;
     }
 
@@ -122,17 +145,17 @@ public class C3a2nasm implements C3aVisitor<NasmOperand> {
 
     @Override
     public NasmOperand visit(C3aConstant oper) {
-        return null;
+        return new NasmConstant(oper.val);
     }
 
     @Override
     public NasmOperand visit(C3aLabel oper) {
-        return null;
+        return new NasmLabel(oper.toString());
     }
 
     @Override
     public NasmOperand visit(C3aTemp oper) {
-        return null;
+        return new NasmRegister(oper.num);
     }
 
     @Override
