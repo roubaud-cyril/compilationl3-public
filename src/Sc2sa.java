@@ -474,6 +474,7 @@ public class Sc2sa extends DepthFirstAdapter {
         condition = (SaExp)this.returnValue;
         node.getInstrbloc().apply(this);
         instrs = (SaInstBloc) this.returnValue;
+
         this.returnValue = new SaInstTantQue(condition,instrs);
     }
 

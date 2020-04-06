@@ -68,7 +68,7 @@ public class Compiler
 	    System.out.println("[C3A OUT]");
 	    C3aEval c3aEval = new C3aEval(c3a, table);
 	    c3aEval.affiche(baseName);
-	    
+	   /*
 	    System.out.print("[BUILD PRE NASM] ");
 	    Nasm nasm = new C3a2nasm(c3a, table).getNasm();
 	    System.out.println("[PRINT PRE NASM] ");
@@ -94,9 +94,12 @@ public class Compiler
 
 	    System.out.println("[PRINT NASM]");
 	    nasm.affiche(baseName);
+
+	    */
 	}
 	catch(Exception e){
 	    System.out.println(e.getMessage());
+		e.printStackTrace();
 	    System.exit(1);
 	}
     }

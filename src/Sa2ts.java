@@ -76,29 +76,38 @@ public class Sa2ts extends SaDepthFirstVisitor<Void> {
     @Override
     public Void visit(SaVarSimple node) {
         String identif = node.getNom();
+        node.tsItem = tableLocale.getVar(identif);
         if (!(tableLocale != null && tableLocale.containsVar(identif))) {
+
             if (!tableGlobale.containsVar(identif)) {
                 throw new RuntimeException("Variable " + identif + " NOT defined");
             }
+            else node.tsItem = tableGlobale.getVar(identif);
         }
+
         return super.visit(node);
     }
 
     @Override
     public Void visit(SaAppel node) {
+
         String identif = node.getNom();
         if (!tableGlobale.containsFonc(identif)) {
+
             throw new RuntimeException("Function " + identif + "NOT defined");
         }
+        node.tsItem = tableGlobale.getFct(identif);
         return super.visit(node);
     }
 
     @Override
     public Void visit(SaVarIndicee node) {
         String identif = node.getNom();
+
         if (!tableGlobale.containsVar(identif)) {
             throw new RuntimeException("La variable indicee " + identif + "n'a pas été définie");
         }
+        node.tsItem = tableGlobale.getVar(identif);
         return super.visit(node);
     }
 }
